@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<script defer src="static\style.js"></script>
+{% endblock %}
+{% block content %}
+<section>
+    <div id="greeting" class="centered hidden">
+        <h1>Hello, my name is Joshua Morrisett...</h1>
+        <br />
+        <h2 class="centered">Nice to meet you!</h2>
+    </div>
+</section>
+<section>
+    <div class="hidden important">
+        <p>Welcome to my <strong>new</strong> website. Below is a copy of my CV.</p>
+    </div>
+
+    <div class="summary hidden">A short summary will go here.</div>
+</section>
+
+
+<section>
+    <div id="skills">
+        <h2>Professional Skills</h2>
+        <hr>
+        {% include 'skills.html' %}
+    </div>
+</section>
+
+<section>
+    <div id="experience">
+        <h2>Professional Experience</h2>
+        <hr>
+        {% include 'experience.html' %}
+    </div>
+</section>
+
+<section>
+    <div id="certifications" class="hidden">{% include 'certifications.html' %}</div>
+</section>
+
+<section>
+    <div id="awards" class="hidden">{% include 'awards.html' %}</div>
+</section>
+
+<section>
+    <div class="hidden">
+        <h2>Thank you for stopping by!</h2>
+        {% include 'contact.html' %}
+    </div>
+</section>
+{% endblock %}
+
+<!-- Calendar -->
+<div class="calendar"></div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\style.css" />
+    <script src="https://kit.fontawesome.com/a96f777450.js" crossorigin="anonymous"></script>
+    <title>{% block title %}{% endblock %}Joshua Morrisett</title>
+    {% endblock %}
+</head>
+<body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        <section>
+            <div class="hidden">
+                &copy; Copyright 2022 by <a href="http://morrisett.net/">Joshua Morrisett</a>.
+                <address><a href = "mailto: joshua.morrisett@gmail.com">Send Email</a></address>
+            </div>
+        </section>
+        {% endblock %}
+    </div>
+</body>
+</html>
