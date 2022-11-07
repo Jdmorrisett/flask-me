@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-{% extends "base.html" %}
-{% block head %}
-{{ super() }}
+<!DOCTYPE html> {% extends "base.html" %} {% block head %} {{ super() }}
 <script defer src="static\style.js"></script>
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 
 <section>
     <div class="ima wrapper">
@@ -14,8 +10,6 @@
             <li><span>an Administrator</span></li>
             <li><span>a Developer</span></li>
             <li><span>an Engineer</span></li>
-            <li><span>a Father</span></li>
-            <li><span>a Husband</span></li>
             <li><span>a Leader</span></li>
             <li><span>available for hire!</span></li>
         </ul>
@@ -32,12 +26,8 @@
         <h2 class="centered">It's nice to meet you!</h2>
     </div>
     <div class="summary hidden">
-        I am a motivated professional looking for new opportunities to provide value.
-        I thrive in collaborative team environments and am self-driven when working solo.
-        I have a highly-epistemophilic personality. You can always find me learning something new.
-        I love to play a variety of musical instruments. I enjoy small electronics and microprocessors.
-        I love cars, drag racing and working on my own project racecar. I have a passion for data,
-        automation, and building things from scratch.
+        I am a motivated professional looking for new opportunities to provide value. I thrive in collaborative team environments and am self-driven when working solo. I have a highly-epistemophilic personality. You can always find me learning something new.
+        I love to play a variety of musical instruments. I enjoy small electronics and microprocessors. I love cars, drag racing and working on my own project racecar. I have a passion for data, automation, and building things from scratch.
     </div>
 </section>
 <section>
@@ -60,8 +50,7 @@
 <section>
     <div id="experience">
         <h2>Professional Experience</h2>
-        <hr>
-        {% include 'experience.html' %}
+        <hr> {% include 'experience.html' %}
     </div>
 </section>
 
