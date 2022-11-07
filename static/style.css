@@ -32,7 +32,7 @@ hr {
 }
 
 #greeting {
-  font-size: xx-large;
+  font-size: large;
   font-weight: bolder;
   font-display: center;
   text-align: center;
@@ -51,6 +51,11 @@ h1, h2 {
   justify-content: space-evenly;
   grid-template-columns: auto auto auto;
   column-gap: 50px;
+}
+
+img {
+  max-width: 100%; 
+  height: auto;
 }
 
 /* .column {
