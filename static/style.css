@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 60px;
+  font-size: 30px;
 }
 
 body {
@@ -97,22 +97,22 @@ h1, h2 {
 
 .wrapper .static-txt {
   color: white;
-  font-size: 60px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 .wrapper .dynamic-txts {
   text-align: left;  
-  margin-left: 15px;
-  line-height: 90px;
-  height: 90px;
+  margin-left: 0.5rem;
+  line-height: 50px;
+  height: 50px;
   overflow: hidden;
 }
 
 .dynamic-txts li {
   list-style: none;
   color: green;
-  font-size: 60px;
+  font-size: 30px;
   font-weight: bold;
   top: 0;
   position: relative;
@@ -146,7 +146,7 @@ h1, h2 {
 
 @keyframes slide {
   100% {
-    top: -720px;
+    top: -400px;
   }
 }
 
