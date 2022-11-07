@@ -31,6 +31,10 @@ hr {
   margin-bottom: 2em;
 }
 
+a {
+  color: #aaaaaa
+}
+
 #greeting {
   font-size: large;
   font-weight: bolder;
