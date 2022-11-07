@@ -45,6 +45,10 @@ hr {
 h1, h2 {
   text-align: center;
 }
+.summary {
+  text-align: center;
+  justify-content: center;
+}
 
 .grid-container {
   display: grid;
