@@ -5,19 +5,41 @@
 <script defer src="static\style.js"></script>
 {% endblock %}
 {% block content %}
+
 <section>
+    <div class="ima wrapper">
+        <div class="ima static-txt">I'm</div>
+        <ul class="ima dynamic-txts">
+            <li><span>an Architect</span></li>
+            <li><span>an Administrator</span></li>
+            <li><span>a Developer</span></li>
+            <li><span>an Engineer</span></li>
+            <li><span>a Father</span></li>
+            <li><span>a Husband</span></li>
+            <li><span>a Leader</span></li>
+
+            <li><span>available for hire!</span></li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="centered hidden">
+        <img id="profile-photo" src="https://avatars.githubusercontent.com/u/17263055?v=4" alt="Profile Photo">
+    </div>
     <div id="greeting" class="centered hidden">
         <h1>Hello, my name is Joshua Morrisett...</h1>
         <br />
-        <h2 class="centered">Nice to meet you!</h2>
+        <h2 class="centered">It's nice to meet you!</h2>
     </div>
 </section>
 <section>
-    <div class="hidden important">
+    <div class="summary hidden">
+        A short summary will go here.
+    </div>
+    <div class="important">
         <p>Welcome to my <strong>new</strong> website. Below is a copy of my CV.</p>
     </div>
-
-    <div class="summary hidden">A short summary will go here.</div>
 </section>
 
 
@@ -25,7 +47,9 @@
     <div id="skills">
         <h2>Professional Skills</h2>
         <hr>
-        {% include 'skills.html' %}
+        <div class="grid-container">
+            {% include 'skills.html' %}
+        </div>
     </div>
 </section>
 
@@ -46,7 +70,7 @@
 </section>
 
 <section>
-    <div class="hidden">
+    <div>
         <h2>Thank you for stopping by!</h2>
         {% include 'contact.html' %}
     </div>

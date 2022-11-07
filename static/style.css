@@ -1,4 +1,9 @@
-
+.ima {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 60px;
+}
 
 body {
   background-color: black;
@@ -12,6 +17,8 @@ section {
   display: grid;
   place-items: center;
   align-content: center;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
 }
 
@@ -31,14 +38,25 @@ hr {
   text-align: center;
 }
 
+#profile-photo {
+  border-radius: 50%;
+}
+
 h1, h2 {
   text-align: center;
 }
 
-.column {
+.grid-container {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto auto;
+  column-gap: 50px;
+}
+
+/* .column {
     float: left;
     width: 33.33%;
-}
+} */
   
   /* Clear floats after the columns */
 .row:after {
@@ -46,6 +64,11 @@ h1, h2 {
     display: table;
     clear: both;
 }
+
+/* .skillset1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+} */
 
 .hidden {
   opacity: 0;
@@ -60,8 +83,84 @@ h1, h2 {
   transform: translateY(0)
 }
 
+.wrapper {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .static-txt {
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.wrapper .dynamic-txts {
+  text-align: left;  
+  margin-left: 15px;
+  line-height: 90px;
+  height: 90px;
+  overflow: hidden;
+}
+
+.dynamic-txts li {
+  list-style: none;
+  color: green;
+  font-size: 60px;
+  font-weight: bold;
+  top: 0;
+  position: relative;
+  animation: slide 24s steps(8) infinite;
+}
+
+.dynamic-txts li {
+  position: relative;
+}
+
+.dynamic-txts li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  border-left: 2px solid green;
+  animation: typing 3s steps(19) infinite;
+}
+
+@keyframes typing {
+  40%,
+  60% {
+    left: calc(100% + 30px);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slide {
+  100% {
+    top: -720px;
+  }
+}
+
 @media(perfers-reduced-motion) {
   .hidden {
     transition: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1em;
+    grid-row-gap: 100px;
   }
 }
