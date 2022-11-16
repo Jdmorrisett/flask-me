@@ -5,7 +5,8 @@
     font-size: 30px;
 }
 
-body {
+
+/* body {
     background-color: black;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -20,7 +21,7 @@ section {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-}
+} */
 
 i {
     padding: right 2px;
@@ -51,6 +52,8 @@ h2 {
     text-align: center;
 }
 
+.hero {}
+
 .summary {
     text-align: center;
     justify-content: center;
@@ -77,11 +80,12 @@ img {
 
 /* Clear floats after the columns */
 
-.row:after {
+
+/* .row:after {
     content: "";
     display: table;
     clear: both;
-}
+} */
 
 
 /* .skillset1 {
@@ -89,7 +93,8 @@ img {
   grid-column-end: 3;
 } */
 
-.hidden {
+
+/* .hidden {
     opacity: 0;
     filter: blur(5px);
     transform: translateY(-50%);
@@ -100,7 +105,7 @@ img {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0)
-}
+} */
 
 .wrapper {
     display: flex;
@@ -109,7 +114,6 @@ img {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
 }

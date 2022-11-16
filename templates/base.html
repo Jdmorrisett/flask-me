@@ -13,8 +13,12 @@
 
 <body>
     <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
+    <!-- <div id="footer"> -->
+    <footer>
         {% block footer %}
+        <section>
+            {% include './contact.html' %}
+        </section>
         <section>
             <div class="hidden">
                 &copy; Copyright 2022 by <a href="https://www.morrisett.net/">Joshua Morrisett</a>.
@@ -22,7 +26,8 @@
             </div>
         </section>
         {% endblock %}
-    </div>
+    </footer>
+
 </body>
 
 </html>

@@ -1,0 +1,50 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 1em;
+}
+
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-50%);
+    transition: all 1.3s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0)
+}
+
+@media(perfers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1em;
+        grid-row-gap: 100px;
+    }
+}
