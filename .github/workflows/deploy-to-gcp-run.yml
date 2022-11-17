@@ -54,8 +54,8 @@ jobs:
 
     - name: Build and Push Container
       run: |-
-        docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }} .
-        docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }}
+        docker build -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{env.ARTIFACT_REGISTRY}}/${{ env.SERVICE }}:${{  github.sha }} .
+        docker push ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{env.ARTIFACT_REGISTRY}}/${{ env.SERVICE }}:${{  github.sha }}
 
     - name: Deploy to Cloud Run
       run: |-
