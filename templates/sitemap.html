@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<span>
+<ul class="sitemap-list hidden">
+    {% for item in nav.top %}
+    <li class="{{ 'active' if item.is_active else '' }} sitemap-item">
+        <a class="sitemap-link" href="{{ item.url }}">{{ item.label }}</a>
+    </li>
+    {% endfor %}
+</ul>    
+</span>
