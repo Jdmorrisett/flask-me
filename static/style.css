@@ -110,6 +110,17 @@ li a:hover {
     overflow: hidden;
 }
 
+
+/* horizontally and vertically center nav-list */
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh;
+    margin: 0; */
+}
+
 .sitemap-item {
     display: inline;
 }
