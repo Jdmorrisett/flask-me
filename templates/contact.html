@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<h2>Please reach out to discuss new opportunities..</h2>
-<div class="logos hidden">
-    <div class="logo hidden">
-        <p class="hidden"><i class="fa-solid fa-mobile-screen-button fa-xl"></i><a href="tel:317-662-0997">(317) 662-0997</a></p>
-        <p class="hidden"><i class="fa-solid fa-envelope fa-xl"></i><a href="mailto:joshua.morrisett@gmail.com">joshua.morrisett@gmail.com</a></p>
-        <p class="hidden"><i class="fa-brands fa-linkedin fa-xl"></i><a href="https://www.linkedin.com/in/joshua-morrisett">LinkedIn (joshua-morrisett)</a></p>
-        <p class="hidden"><i class="fa-solid fa-globe fa-xl"></i></i><a href="https://www.morrisett.net">www.morrisett.net</a></p>
-    </div>
-</div>
+<!DOCTYPE html> {% extends "base.html" %} {% block head %} {{ super() }}
+<script defer src="static\style.js"></script>
+{% endblock %} {% block content %}
+<section>{% include 'contactinfo.html' %} </section>
+
+
+{% endblock %}

@@ -12,17 +12,23 @@
 </head>
 
 <body>
+    <div>
+        {% include './navbar.html' %}
+    </div>
+
     <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
+    <footer>
         {% block footer %}
         <section>
+            {% include './sitemap.html' %}
             <div class="hidden">
                 &copy; Copyright 2022 by <a href="https://www.morrisett.net/">Joshua Morrisett</a>.
                 <address><a href = "mailto: joshua.morrisett@gmail.com">Send Email</a></address>
             </div>
         </section>
         {% endblock %}
-    </div>
+    </footer>
+
 </body>
 
 </html>
