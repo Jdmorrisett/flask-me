@@ -181,6 +181,18 @@ li a:hover {
     justify-content: center;
 }
 
+.center-all {
+    display: flex;
+    place-items: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
 .centered-text {
     text-align: center;
 }

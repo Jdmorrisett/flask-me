@@ -1,0 +1,75 @@
+<!DOCTYPE html> {% extends "base.html" %} {% block content %}
+
+
+<div class="centered-text">
+    <br><br>
+    <h3>
+        Please note: This site is heavily under construction. I am pushing frequent updates between interviews and in the evenings while I study and look at new projects.
+    </h3>
+</div>
+
+<section>
+    <div>
+        <h1>Projects</h1>
+        <p>Unfortunately, I was not able to keep any of the work I did at my previous company over the last 10 years. Since I haven't been on the market, I haven't prepared many public projects in Github. I am currently working on a few projects that I will
+            be able to share soon. I have worked on a few projects that I will not be able to share, but I will be able to discuss in some general detail.
+        </p>
+
+        <br>
+        <br>
+
+        <section class="container">
+            <div class="centered-text">
+                <h2>Flask-Me (This website project)</h2>
+                <sub><a href="https://github.com/jdmorrisett/flask-me">Github Source</a></sub>
+                <hr>
+            </div>
+            <div>
+                <h4>Some incorporated technologies</h4>
+                <ul>
+                    <li>Python</li>
+                    <li>Flask</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>CD (Github Actions)</li>
+                    <li>Docker Container</li>
+                    <li>GCP Cloud Run Deployment</li>
+                </ul>
+            </div>
+
+            <div class="centered-all centered-text">
+                <p>Although a simple web app to host my about me page, resume, contact info, and portfolio (soon), this application uses several technologies and concepts to get to this point. I just started this project last week and will be continuing
+                    to update it as I can get free time. I plan to add the Continous Integration with some test cases, add more portfolio projects, and create the IaC with Terraform for this application and others. <br><br>Check it out on <a href="https://github.com/jdmorrisett/flask-me">Github</a>                    for the latest info.</p>
+            </div>
+
+            <div>
+                <h4>Roadmap</h4>
+                <ul>
+                    <li>More portfolio projects</li>
+                    <li>Skills API (REST)</li>
+                    <li>Experience API (GraphQL?)</li>
+                    <li>Scheduling</li>
+                    <li>Blog</li>
+                    <li>Relational DB (Postgres?)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="centered-text">
+                <h1>More to come soon!! Stay tuned. Thank you for your patience!</h1>
+            </div>
+
+        </section>
+
+    </div>
+</section>
+
+<section>
+    <div>
+        {% include 'contactinfo.html' %}
+    </div>
+</section>
+
+</span> {% endblock %}
