@@ -1,4 +1,6 @@
-<!DOCTYPE html> {% extends "base.html" %} {% block content %}
+<!DOCTYPE html> {% extends "base.html" %} {% block head %} {{ super() }}
+<script defer src="static\style.js"></script>
+{% endblock %} {% block content %}
 
 
 <div class="centered-text">
@@ -18,43 +20,17 @@
         <br>
         <br>
 
-        <section class="container">
-            <div class="centered-text">
-                <h2>Flask-Me (This website project)</h2>
-                <sub><a href="https://github.com/jdmorrisett/flask-me">Github Source</a></sub>
-                <hr>
-            </div>
-            <div>
-                <h4>Some incorporated technologies</h4>
-                <ul>
-                    <li>Python</li>
-                    <li>Flask</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>CD (Github Actions)</li>
-                    <li>Docker Container</li>
-                    <li>GCP Cloud Run Deployment</li>
-                </ul>
-            </div>
+        <!-- This really needs to be a generated list from os library to get the file names from the dir. Hardcoding for time-sake -->
+        <!--
+            {% for file_name in file_list %}
+                {% include file_name %}
+            {% endfor %} 
+        -->
 
-            <div class="centered-all centered-text">
-                <p>Although a simple web app to host my about me page, resume, contact info, and portfolio (soon), this application uses several technologies and concepts to get to this point. I just started this project last week and will be continuing
-                    to update it as I can get free time. I plan to add the Continous Integration with some test cases, add more portfolio projects, and create the IaC with Terraform for this application and others. <br><br>Check it out on <a href="https://github.com/jdmorrisett/flask-me">Github</a>                    for the latest info.</p>
-            </div>
+        <div class="deck">
+            {% include "./portfolio-cards/flaskme.html" %} {% include "./portfolio-cards/enginecalc.html" %}
+        </div>
 
-            <div>
-                <h4>Roadmap</h4>
-                <ul>
-                    <li>More portfolio projects</li>
-                    <li>Skills API (REST)</li>
-                    <li>Experience API (GraphQL?)</li>
-                    <li>Scheduling</li>
-                    <li>Blog</li>
-                    <li>Relational DB (Postgres?)</li>
-                </ul>
-            </div>
-        </section>
 
         <section>
             <div class="centered-text">

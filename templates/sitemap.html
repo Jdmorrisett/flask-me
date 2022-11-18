@@ -3,8 +3,9 @@
 <ul class="sitemap-list hidden">
     {% for item in nav.top %}
     <li class="{{ 'active' if item.is_active else '' }} sitemap-item">
-        <a class="sitemap-link" href="{{ item.url }}">{{ item.label }}</a>
+        <h3><a class="sitemap-link" href="{{ item.url }}">{{ item.label }}</a></h3>
     </li>
     {% endfor %}
 </ul>    
+<hr>
 </span>
