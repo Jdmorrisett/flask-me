@@ -1,7 +1,7 @@
 name: "Terraform Actions on PR"
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT }}
-  ARTIFACT_REGISTRY: portfolio-docker
+  ARTIFACT_REPOSITORY: portfolio-docker
   SERVICE: flask-me
   REGION: us-east1
 
