@@ -1,3 +1,10 @@
+name: "Terraform Actions on PR"
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT }}
+  ARTIFACT_REGISTRY: portfolio-docker
+  SERVICE: flask-me
+  REGION: us-east1
+
 on:
   pull_request:
     types: [opened,closed]
@@ -16,7 +23,6 @@ jobs:
         working-directory: ./deploy/terraform/gcp
         run: terraform init \
           -backend-config="bucket=${{ env.PROJECT_ID }}-bucket-tfstate" \
-          -backend-config="prefix=terraform/state"
 
       - name: Terraform plan
         working-directory: ./deploy/terraform/gcp
