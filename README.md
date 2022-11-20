@@ -20,6 +20,5 @@ This is a flask app, running in a linux-based docker container. The image is bui
 This information is automagically generated in the Github Actions pipelines.
 
 <!-- BEGIN_TF_DOCS -->
-
-
+{{ .Content }}
 <!-- END_TF_DOCS -->

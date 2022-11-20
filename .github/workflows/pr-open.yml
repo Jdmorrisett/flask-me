@@ -45,10 +45,11 @@ jobs:
         continue-on-error: true
         uses: terraform-docs/gh-actions@main
         with:
-          working-dir: "./deploy/terraform/gcp"
+          find-dir: "./deploy/terraform/gcp"
           output-file: "../../../README.md"
           output-method: inject
           git-push: "true"
+          git-push-sign-off: "true"
 
       - name: Terraform plan
         id: plan
