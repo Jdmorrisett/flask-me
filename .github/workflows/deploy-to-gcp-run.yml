@@ -33,29 +33,6 @@ jobs:
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
 
-    # Run Terraform
-    - name: Terraform init
-      working-directory: ./deploy/terraform/gcp
-      run: terraform init \
-        -backend-config='bucket=${{ env.PROJECT_ID }}-bucket-tfstate' \
-        -backend-config='prefix=terraform/state'
-
-    - name: Terraform plan
-      working-directory: ./deploy/terraform/gcp
-      run: |- 
-        terraform plan \
-        -var 'PROJECT_ID=${{ env.PROJECT_ID }}' \
-        -var 'LOCATION=us-east1' \
-        -var 'ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}' \
-
-    - uses: robburger/terraform-pr-commenter@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        commenter_type: plan 
-        commenter_input: ${{ format('{0}{1}', steps.step_id.outputs.stdout, steps.step_id.outputs.stderr) }}
-        commenter_exitcode: ${{ steps.step_id.outputs.exitcode }}
-
     - name: Authorize Docker push
       run: gcloud auth configure-docker
 
