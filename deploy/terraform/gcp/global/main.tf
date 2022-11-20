@@ -1,9 +1,3 @@
-terraform {
- backend "gcs" {
-   prefix  = "terraform/state"
- }
-}
-
 data "google_compute_default_service_account" "service_account" {
   project = var.PROJECT_ID
 }
