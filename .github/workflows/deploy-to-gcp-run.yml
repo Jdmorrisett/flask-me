@@ -15,7 +15,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    # Add "id-token" with the intended permissions.
+    # Add 'id-token' with the intended permissions.
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -37,15 +37,15 @@ jobs:
     - name: Terraform init
       working-directory: ./deploy/terraform/gcp
       run: terraform init \
-        -backend-config="bucket=${{ env.PROJECT_ID }}-bucket-tfstate" \
-        -backend-config="prefix=terraform/state"
+        -backend-config='bucket=${{ env.PROJECT_ID }}-bucket-tfstate' \
+        -backend-config='prefix=terraform/state'
 
     - name: Terraform plan
       working-directory: ./deploy/terraform/gcp
       run: terraform plan \
-        -var "PROJECT_ID=${{ env.PROJECT_ID }}" \
-        -var "LOCATION=us-east1" \
-        -var "ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}" \
+        -var 'PROJECT_ID=${{ env.PROJECT_ID }}' \
+        -var 'LOCATION=us-east1' \
+        -var 'ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}' \
 
     - uses: robburger/terraform-pr-commenter@v1
       env:
