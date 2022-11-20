@@ -50,6 +50,7 @@ jobs:
           -out 'tfplan'
 
       - uses: robburger/terraform-pr-commenter@v1
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
