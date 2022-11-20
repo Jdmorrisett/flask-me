@@ -55,8 +55,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commenter_type: plan 
-          commenter_input: ${{ format('{0}{1}', steps.step_id.outputs.stdout, steps.step_id.outputs.stderr) }}
-          commenter_exitcode: ${{ steps.step_id.outputs.exitcode }}
+          commenter_input: ${{ format('{0}{1}', steps.plan.outputs.stdout, steps.plan.outputs.stderr) }}
+          commenter_exitcode: ${{ steps.plan.outputs.exitcode }}
   
   pr_approved:
     if: github.event.pull_request.merged == true
@@ -65,13 +65,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      # Setup gcloud CLI
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+
+      - name : Terraform Setup
+        uses: hashicorp/setup-terraform@v2
+
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
-        run: |-
+        run: |- 
           terraform init \
-          -backend-config='bucket=flask-me-367906-bucket-tfstate'
+          -backend-config='bucket=flask-me-367906-bucket-tfstate' \
+          -backend-config='prefix=terraform/state'
       
-      - name: Terraform plan
+      - name: Terraform Apply
         working-directory: ./deploy/terraform/gcp
         run: |-
           terraform apply \
