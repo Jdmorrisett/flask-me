@@ -42,7 +42,8 @@ jobs:
 
     - name: Terraform plan
       working-directory: ./deploy/terraform/gcp
-      run: terraform plan \
+      run: |- 
+        terraform plan \
         -var 'PROJECT_ID=${{ env.PROJECT_ID }}' \
         -var 'LOCATION=us-east1' \
         -var 'ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}' \

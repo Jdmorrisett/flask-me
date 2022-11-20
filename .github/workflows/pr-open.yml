@@ -30,11 +30,15 @@ jobs:
 
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
-        run: terraform init -backend-config='bucket=flask-me-367906-bucket-tfstate' -backend-config='prefix=terraform/state'
+        run: |- 
+          terraform init \
+          -backend-config='bucket=flask-me-367906-bucket-tfstate' \
+          -backend-config='prefix=terraform/state'
 
       - name: Terraform plan
         working-directory: ./deploy/terraform/gcp
-        run: terraform plan \
+        run: |-
+          terraform plan \
           -var 'PROJECT_ID=${{ env.PROJECT_ID }}' \
           -var 'LOCATION=us-east1' \
           -var 'ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}'
@@ -56,12 +60,14 @@ jobs:
 
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
-        run: terraform init \
+        run: |-
+          terraform init \
           -backend-config='bucket=flask-me-367906-bucket-tfstate'
       
       - name: Terraform plan
         working-directory: ./deploy/terraform/gcp
-        run: terraform apply \
+        run: |-
+          terraform apply \
           -var 'PROJECT_ID=${{ env.PROJECT_ID }}' \
           -var 'LOCATION=us-east1' \
           -var 'ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}' \
