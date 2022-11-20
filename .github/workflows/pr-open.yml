@@ -10,6 +10,8 @@ on:
     types: [opened,closed,reopened,edited,synchronize]
     branches:
       - main
+    paths: 
+      - 'deploy/terraform/**'
   workflow_dispatch:
 
 jobs:
@@ -38,6 +40,15 @@ jobs:
           terraform init \
           -backend-config='bucket=flask-me-367906-bucket-tfstate' \
           -backend-config='prefix=terraform/state'
+
+      - name: Render terraform docs and push changes back to PR
+        continue-on-error: true
+        uses: terraform-docs/gh-actions@main
+        with:
+          working-dir: "./deploy/terraform/gcp"
+          output-file: "../../../README.md"
+          output-method: inject
+          git-push: "true"
 
       - name: Terraform plan
         id: plan
