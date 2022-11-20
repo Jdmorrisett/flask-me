@@ -19,6 +19,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      # Setup gcloud CLI
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
         run: terraform init -backend-config="bucket=flask-me-367906-bucket-tfstate" -backend-config="prefix=terraform/state"
