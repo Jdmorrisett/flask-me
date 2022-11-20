@@ -1,3 +1,11 @@
 venv/
 __pycache__/
 *.env
+
+*.tfvars
+*.terraform
+*.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+terraform_import*
+gcloud-export-modules*
