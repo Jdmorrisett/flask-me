@@ -22,7 +22,7 @@ jobs:
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
         run: terraform init \
-          -backend-config="bucket=${{ env.PROJECT_ID }}-bucket-tfstate" \
+          -backend-config="bucket=flask-me-367906-bucket-tfstate" \
 
       - name: Terraform plan
         working-directory: ./deploy/terraform/gcp
@@ -49,7 +49,7 @@ jobs:
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
         run: terraform init \
-          -backend-config="bucket=${{ env.PROJECT_ID }}-bucket-tfstate" \
+          -backend-config="bucket=flask-me-367906-bucket-tfstate" \
           -backend-config="prefix=terraform/state"
       
       - name: Terraform plan
