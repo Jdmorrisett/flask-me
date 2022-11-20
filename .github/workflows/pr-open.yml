@@ -21,8 +21,7 @@ jobs:
 
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
-        run: terraform init \
-          -backend-config="bucket=flask-me-367906-bucket-tfstate"
+        run: terraform init -backend-config="bucket=flask-me-367906-bucket-tfstate" -backend-config="prefix=terraform/state"
 
       - name: Terraform plan
         working-directory: ./deploy/terraform/gcp
