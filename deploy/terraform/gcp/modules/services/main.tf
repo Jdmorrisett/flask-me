@@ -1,9 +1,3 @@
-terraform {
- backend "gcs" {
-   prefix  = "terraform/state"
- }
-}
-
 resource "google_storage_bucket" "app_artifacts" {
   force_destroy               = false
   location                    = "US"

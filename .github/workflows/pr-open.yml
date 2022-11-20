@@ -1,13 +1,13 @@
 name: "Terraform Actions on PR"
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT }}
-  ARTIFACT_REGISTRY: portfolio-docker
+  ARTIFACT_REPOSITORY: portfolio-docker
   SERVICE: flask-me
   REGION: us-east1
 
 on:
   pull_request:
-    types: [opened,closed]
+    types: [opened,closed,reopened,edited,synchronize]
     branches:
       - main
   workflow_dispatch:
@@ -19,19 +19,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      # Setup gcloud CLI
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+
+      - name : Terraform Setup
+        uses: hashicorp/setup-terraform@v2
+
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
-        run: terraform init \
-          -backend-config="bucket=flask-me-367906-bucket-tfstate"
+        run: |- 
+          terraform init \
+          -backend-config='bucket=flask-me-367906-bucket-tfstate' \
+          -backend-config='prefix=terraform/state'
 
       - name: Terraform plan
+        id: plan
         working-directory: ./deploy/terraform/gcp
-        run: terraform plan \
-          -var "PROJECT_ID=${{ env.PROJECT_ID }}" \
-          -var "LOCATION=us-east1" \
-          -var "ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}"
+        run: |-
+          terraform plan \
+          -var 'PROJECT_ID=${{ env.PROJECT_ID }}' \
+          -var 'LOCATION=us-east1' \
+          -var 'ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}' \
+          -out 'tfplan'
 
       - uses: robburger/terraform-pr-commenter@v1
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -48,13 +67,15 @@ jobs:
 
       - name: Terraform init
         working-directory: ./deploy/terraform/gcp
-        run: terraform init \
-          -backend-config="bucket=flask-me-367906-bucket-tfstate"
+        run: |-
+          terraform init \
+          -backend-config='bucket=flask-me-367906-bucket-tfstate'
       
       - name: Terraform plan
         working-directory: ./deploy/terraform/gcp
-        run: terraform apply \
-          -var "PROJECT_ID=${{ env.PROJECT_ID }}" \
-          -var "LOCATION=us-east1" \
-          -var "ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}" \
+        run: |-
+          terraform apply \
+          -var 'PROJECT_ID=${{ env.PROJECT_ID }}' \
+          -var 'LOCATION=us-east1' \
+          -var 'ARTIFACT_REPOSITORY=${{ env.ARTIFACT_REPOSITORY }}' \
           -auto-approve
